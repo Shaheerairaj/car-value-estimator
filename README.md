@@ -7,7 +7,7 @@ It can be used to get an idea of what it might cost to buy or sell their car at 
 # Steps
 
 1. Build a webscraper to scrap data from dubizzle and potentially other websites like carswitch
-2. Store the data in SQL databse
+2. Store the data in SQL databse (optional)
 3. Analyze the data
 4. Build a model which will predict the estimate of the value of a car
 5. Build a simple webapp which will use the model trained in step 3
