@@ -54,9 +54,28 @@ def get_price(prod_url):
 
     return price[0].text
 
+def get_item_overview(prod_url):
+    driver = webdriver.Chrome()
+    driver.get(prod_url)
+
+    driver.implicitly_wait(2)
+
+    item_overview_elements = driver.find_elements(by=By.CLASS_NAME, value='sc-dtBdUo.sc-kOHTFB.sc-fbKhjd.itlMGh.glrnAB.kXcIto')[0]
+    trim = item_overview_elements.find_elements(by=By.CSS_SELECTOR, value='[data-ui-id="details-value-motors_trim"]')[0].text
+    model_year = item_overview_elements.find_elements(by=By.CSS_SELECTOR, value='[data-ui-id="details-value-year"]')[0].text
+    km = item_overview_elements.find_elements(by=By.CSS_SELECTOR, value='[data-ui-id="details-value-kilometers"]')[0].text
+    regional_specs = item_overview_elements.find_elements(by=By.CSS_SELECTOR, value='[data-ui-id="details-value-regional_specs"]')[0].text
+    doors = item_overview_elements.find_elements(by=By.CSS_SELECTOR, value='[data-ui-id="details-value-doors"]')[0].text
+
+    return trim, model_year, km, regional_specs, doors
+
 
 
 prod_url = 'https://uae.dubizzle.com/motors/used-cars/mercedes-benz/c-class/2024/1/22/mercedes-benz-c-200-premium-plus-2024-gcc--2-004---a30d8754f6624f6db43f3f812dfe119c/'
-price = get_price(prod_url)
+trim, model_year, km, regional_specs, doors = get_item_overview(prod_url)
 
-print('Price: ',price)
+print('Trim: ', trim)
+print('Model Year: ', model_year)
+print('Kilometers: ', km)
+print('Regional Specs: ', regional_specs)
+print('Doors: ', doors)
