@@ -7,7 +7,7 @@ def get_prod_links(main_url):
     driver = webdriver.Chrome()
     driver.get(main_url)
 
-    driver.implicitly_wait(10)
+    driver.implicitly_wait(5)
 
     car_links = []
 
@@ -28,4 +28,25 @@ def get_prod_links(main_url):
         # Links to cars
         for prod in product_list:
             car_links.append(prod.get_attribute('href'))
+
     return car_links
+
+
+def get_prod_brand(prod_url):
+    driver = webdriver.Chrome()
+    driver.get(prod_url)
+
+    driver.implicitly_wait(2)
+
+    category_buttons = driver.find_elements(by=By.CLASS_NAME, value='sc-dExYaf.jhJUqv')
+    category_buttons = category_buttons[0].find_elements(by=By.TAG_NAME, value='a')
+    brand_name = category_buttons[-2].text
+    car_name = category_buttons[-1].text
+    return brand_name, car_name
+
+
+prod_url = 'https://uae.dubizzle.com/motors/used-cars/mercedes-benz/c-class/2024/1/22/mercedes-benz-c-200-premium-plus-2024-gcc--2-004---a30d8754f6624f6db43f3f812dfe119c/'
+brand_name, car_name = get_prod_brand(prod_url)
+
+print('Brand Name: ',brand_name)
+print('Car Name: ', car_name)
