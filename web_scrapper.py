@@ -100,7 +100,7 @@ url4 = 'https://uae.dubizzle.com/motors/used-cars/land-rover/defender/2024/5/4/2
 
 
 
-driver = start_driver(url4)
+driver = start_driver(url1)
 brand_name, car_name = get_prod_brand(driver)
 price = get_price(driver)
 trim, model_year, km, regional_specs, doors = get_item_overview(driver)
@@ -109,6 +109,7 @@ title = get_title(driver)
 body_type, fuel_type, seller_type, seating_capacity, trans_type, engine_capacity, extras, tech_features, horsepower, cylinders, warranty, ext_color, target_market, steering_side = get_additional_details(driver)
 
 
+print('Car ID: ',url1.split('---')[1][:-1])
 print('Brand Name: ', brand_name)
 print('Car Name: ', car_name)
 print('Title: ', title)
