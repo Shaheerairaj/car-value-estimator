@@ -44,9 +44,19 @@ def get_prod_brand(prod_url):
     car_name = category_buttons[-1].text
     return brand_name, car_name
 
+def get_price(prod_url):
+    driver = webdriver.Chrome()
+    driver.get(prod_url)
+
+    driver.implicitly_wait(2)
+
+    price = driver.find_elements(by=By.CLASS_NAME, value='sc-hknOHE.iwSYpa.sc-iowXnY.bpQFnZ')
+
+    return price[0].text
+
+
 
 prod_url = 'https://uae.dubizzle.com/motors/used-cars/mercedes-benz/c-class/2024/1/22/mercedes-benz-c-200-premium-plus-2024-gcc--2-004---a30d8754f6624f6db43f3f812dfe119c/'
-brand_name, car_name = get_prod_brand(prod_url)
+price = get_price(prod_url)
 
-print('Brand Name: ',brand_name)
-print('Car Name: ', car_name)
+print('Price: ',price)
