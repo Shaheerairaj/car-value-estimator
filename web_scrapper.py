@@ -192,49 +192,66 @@ def get_additional_details(driver):
 
 
 
+def click_filter_buttons(driver):
+    buttons = driver.find_elements(by=By.CLASS_NAME, value='sc-dhKdcB.gmQasA')
+    return buttons
 
-urls = ['https://uae.dubizzle.com/motors/used-cars/mercedes-benz/c-class/2024/1/22/mercedes-benz-c-200-premium-plus-2024-gcc--2-004---a30d8754f6624f6db43f3f812dfe119c/',
-        'https://uae.dubizzle.com/motors/used-cars/lamborghini/huracan/2024/5/4/lamborghini-huracan-evo-spyder-2-532---fa589071c25343718cf10a2043d8507e/',
-        'https://uae.dubizzle.com/motors/used-cars/mercedes-benz/vito/2024/4/24/body-kit-maybach-2018-model-gcc-specs-unde-2-113---5c0fc80d488744438e2c5b8724dcdadd/',
-        'https://uae.dubizzle.com/motors/used-cars/land-rover/defender/2024/5/4/2024-defender-110-hse-30l-turbocharged-al--2-542---0c29098029fa4d0db16282bd6efff85e/'
-]
+
+driver = start_driver('https://uae.dubizzle.com/motors/used-cars/')
+buttons = click_filter_buttons(driver)
+
+print(buttons)
+
+
+
+
+
+
+
+# urls = ['https://uae.dubizzle.com/motors/used-cars/mercedes-benz/c-class/2024/1/22/mercedes-benz-c-200-premium-plus-2024-gcc--2-004---a30d8754f6624f6db43f3f812dfe119c/',
+#         'https://uae.dubizzle.com/motors/used-cars/lamborghini/huracan/2024/5/4/lamborghini-huracan-evo-spyder-2-532---fa589071c25343718cf10a2043d8507e/',
+#         'https://uae.dubizzle.com/motors/used-cars/mercedes-benz/vito/2024/4/24/body-kit-maybach-2018-model-gcc-specs-unde-2-113---5c0fc80d488744438e2c5b8724dcdadd/',
+#         'https://uae.dubizzle.com/motors/used-cars/land-rover/defender/2024/5/4/2024-defender-110-hse-30l-turbocharged-al--2-542---0c29098029fa4d0db16282bd6efff85e/'
+# ]
 
 
 # Individual Product Logic
 
-for url in urls:
+# for url in urls:
 
-    driver = start_driver(url)
-    brand_name, car_name = get_prod_brand(driver)
-    price = get_price(driver)
-    trim, model_year, km, regional_specs, doors = get_item_overview(driver)
-    num_pictures = get_num_pictures(driver)
-    title = get_title(driver)
-    body_type, fuel_type, seller_type, seating_capacity, trans_type, engine_capacity, extras, tech_features, horsepower, cylinders, warranty, ext_color, target_market, steering_side = get_additional_details(driver)
+#     driver = start_driver(url)
+#     brand_name, car_name = get_prod_brand(driver)
+#     price = get_price(driver)
+#     trim, model_year, km, regional_specs, doors = get_item_overview(driver)
+#     num_pictures = get_num_pictures(driver)
+#     title = get_title(driver)
+#     body_type, fuel_type, seller_type, seating_capacity, trans_type, engine_capacity, extras, tech_features, horsepower, cylinders, warranty, ext_color, target_market, steering_side = get_additional_details(driver)
 
 
-    print('Car ID: ',url.split('---')[1][:-1])
-    print('Brand Name: ', brand_name)
-    print('Car Name: ', car_name)
-    print('Title: ', title)
-    print('Price: ',price)
-    print('Trim: ', trim)
-    print('Model Year: ', model_year)
-    print('Kilometers: ', km)
-    print('Regional Specs: ', regional_specs)
-    print('Doors: ', doors)
-    print('No. of Pictures: ', num_pictures)
-    print('Body Type: ', body_type)
-    print('Fuel Type: ', fuel_type)
-    print('Seller Type: ', seller_type)
-    print('Seating Type: ', seating_capacity)
-    print('Transmission Type: ', trans_type)
-    print('Engine Capacity: ', engine_capacity)
-    print('Extras: ', extras)
-    print('Technical Features: ', tech_features)
-    print('Horsepower: ', horsepower)
-    print('Cylinders: ', cylinders)
-    print('Warranty: ', warranty)
-    print('Exterior Color: ', ext_color)
-    print('Target Market: ', target_market)
-    print('Steering Side: ', steering_side)
+#     print('Car ID: ',url.split('---')[1][:-1])
+#     print('Brand Name: ', brand_name)
+#     print('Car Name: ', car_name)
+#     print('Title: ', title)
+#     print('Price: ',price)
+#     print('Trim: ', trim)
+#     print('Model Year: ', model_year)
+#     print('Kilometers: ', km)
+#     print('Regional Specs: ', regional_specs)
+#     print('Doors: ', doors)
+#     print('No. of Pictures: ', num_pictures)
+#     print('Body Type: ', body_type)
+#     print('Fuel Type: ', fuel_type)
+#     print('Seller Type: ', seller_type)
+#     print('Seating Type: ', seating_capacity)
+#     print('Transmission Type: ', trans_type)
+#     print('Engine Capacity: ', engine_capacity)
+#     print('Extras: ', extras)
+#     print('Technical Features: ', tech_features)
+#     print('Horsepower: ', horsepower)
+#     print('Cylinders: ', cylinders)
+#     print('Warranty: ', warranty)
+#     print('Exterior Color: ', ext_color)
+#     print('Target Market: ', target_market)
+#     print('Steering Side: ', steering_side)
+
+
